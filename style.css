@@ -145,29 +145,13 @@ button {
   margin-top: 20px;
 }
 
-/* Marquee */
-.marquee-container {
-  width: 100%;
-  overflow: hidden;
-  height: 40px;
-  margin: 10px 0;
-  background: #000;
-  border-top: 2px solid #ffcc00;
-  border-bottom: 2px solid #ffcc00;
-  position: relative;
-}
-
-.marquee-text {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  animation: scroll-left 5s linear infinite;
-  color: #ffcc00;
+.static-result {
+  font-size: 1.3rem;
   font-weight: bold;
-  font-size: 1.2rem;
-}
-
-@keyframes scroll-left {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  color: #ffffff;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 90%;
+  margin: 10px auto;
 }
