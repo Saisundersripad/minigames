@@ -132,8 +132,7 @@ function endRound(message) {
   updateUI();
   updateMoney();
 
-  // marquee text
-  resultMessage.innerHTML = `${message} &nbsp; &nbsp; ${message} &nbsp; &nbsp; ${message}`;
+  resultMessage.textContent = message;
 
   resultSection.style.display = "block";
 }
@@ -237,3 +236,15 @@ function enableButtons() {
   hitBtn.disabled = false;
   standBtn.disabled = false;
 }
+
+const rulesBtn = document.getElementById("rules-btn");
+const rulesModal = document.getElementById("rules-modal");
+const closeRulesBtn = document.getElementById("close-rules");
+
+rulesBtn.onclick = () => {
+  rulesModal.style.display = "flex";
+};
+
+closeRulesBtn.onclick = () => {
+  rulesModal.style.display = "none";
+};
