@@ -56,7 +56,7 @@ document.getElementById("plus-100").onclick = () => changeBet(100);
 
 confirmBetBtn.onclick = () => {
   betAmount = parseInt(betInput.value);
-  if (playerMoney < betAmount) {
+  if (playerMoney < betAmount || playerMoney == 0) {
     alert("Not enough funds!");
     return;
   }
@@ -134,13 +134,26 @@ function endRound(message) {
 
   resultMessage.textContent = message;
 
+  if (playerMoney < 10) {
+    document.getElementById("action-buttons").style.display = "none";
+    document.getElementById("no-money").style.display = "block";
+  } else {
+    document.getElementById("action-buttons").style.display = "block";
+    document.getElementById("no-money").style.display = "none";
+  }
+
   resultSection.style.display = "block";
 }
+
+const endGameBtn = document.getElementById("end-game");
+endGameBtn.onclick = () => {
+  location.reload();
+};
 
 
 function updateMoney() {
   document.getElementById("money").textContent = playerMoney;
-  if (playerMoney < 10) {
+  if (playerMoney < 0) {
     document.getElementById("game-area").style.display = "none";
     document.getElementById("game-over").style.display = "flex";
   }
