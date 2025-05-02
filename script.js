@@ -261,3 +261,26 @@ rulesBtn.onclick = () => {
 closeRulesBtn.onclick = () => {
   rulesModal.style.display = "none";
 };
+
+const suits = ['♠', '♥', '♦', '♣'];
+const fallingContainer = document.getElementById('falling-suits');
+
+function createSuit() {
+  const suit = document.createElement('div');
+  suit.classList.add('suit');
+  suit.textContent = suits[Math.floor(Math.random() * suits.length)];
+
+  suit.style.left = Math.random() * 100 + 'vw';
+  suit.style.top = '-30px';
+  suit.style.fontSize = (16 + Math.random() * 20) + 'px';
+  suit.style.animationDuration = (3 + Math.random() * 4) + 's';
+
+  fallingContainer.appendChild(suit);
+
+  setTimeout(() => {
+    suit.remove();
+  }, 8000);
+}
+
+// Trigger falling suits continuously
+setInterval(createSuit, 300);
