@@ -21,7 +21,7 @@
     <h2>Blackjack Rules</h2>
     <ul style="text-align: left;">
       <li>Try to get as close to 21 without going over.</li>
-      <li>Dealer must hit until reaching at least 17.</li>
+      <li>Dealer will play only after player clicks stand.</li>
       <li>Ace can be 1 or 11. Face cards are 10.</li>
       <li>If you go over 21, you bust and lose the round.</li>
       <li>If both hands tie, it's a push and your bet is returned.</li>
@@ -67,9 +67,23 @@
 <div id="result-section" style="display: none;">
   <h3 style="margin-bottom: 5px; color: #ffcc00;">Result</h3>
   <p id="result-message" class="static-result"></p>
-  <button id="next-round">Proceed</button>
-  <button id="cancel-game">Cancel</button>
+
+  <!-- Normal game end buttons -->
+  <div id="action-buttons">
+    <button id="next-round">Proceed</button>
+    <button id="cancel-game">Cancel</button>
+  </div>
+
+  <!-- When player has no money -->
+  <div id="no-money" style="display: none;">
+    <p style="color: white; background-color: #222; padding: 10px; border-radius: 6px; font-weight: bold;">
+      You have no money to bet!
+    </p>
+    <button id="end-game">End Game</button>
+  </div>
 </div>
+
+
 
 
 <!-- Game Over -->
