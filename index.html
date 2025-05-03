@@ -24,15 +24,27 @@
 <!-- Rules Modal -->
 <div id="rules-modal" class="modal-overlay" style="display: none;">
   <div class="modal-content">
-    <h2>Blackjack Rules</h2>
+    <div class="rules-title">
+      <h2>Blackjack Rules</h2>
+    </div>
+    <h3>How to play?</h3>
     <ul style="text-align: left;">
+      <li>Select the bet bet-amount you want to bet.</li>
+      <li>Click <strong>Hit</strong> to draw card.</li>
       <li>Try to get as close to 21 without going over.</li>
+      <li>Once decided, click <strong>Stand</strong> to let dealer play.</li>
       <li>Dealer will play only after player clicks stand.</li>
+      <li>If the player wins the round, <strong>2X </strong>'Current Bet' is added to Money.</li>
+      <li>If the player loses the round, the 'Current Bet' amount is lost</li>
+    </ul>
+    <h3>Card values</h3>
+    <ul style="text-align: left;">
+      <li>Card values and total are shown during play.</li>
       <li>Ace can be 1 or 11. Face cards are 10.</li>
       <li>If you go over 21, you bust and lose the round.</li>
       <li>If both hands tie, it's a push and your bet is returned.</li>
-      <li>Card values and total are shown during play.</li>
     </ul>
+    <span><strong>Note: Any progress in the game will not be saved.</strong></span>
     <button id="close-rules">Close</button>
   </div>
 </div>
@@ -42,7 +54,11 @@
 <div id="game-area" style="display: none;">
   <div id="status">
     <p>Money: $<span id="money">1000</span></p>
-    <p id="current-bet">Current Bet: $0</p>
+    <div id="current-bet-container">
+      <p id="current-bet">Current Bet: $0</p>
+      <button id="change-bet-btn" class="inline-btn">Change Bet</button>
+    </div>
+    
   </div>
 
   <div class="hands">
@@ -89,9 +105,6 @@
   </div>
 </div>
 
-
-
-
 <!-- Game Over -->
 <div id="game-over" style="display: none;">
   <h1>Game Over</h1>
@@ -109,7 +122,7 @@
       <button id="plus-10">+10</button>
       <button id="plus-100">+100</button>
     </div>
-    <button id="confirm-bet">OK</button>
+    <button id="confirm-bet">Confirm Bet</button>
   </div>
 </div>
 
