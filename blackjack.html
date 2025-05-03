@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blackjack Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Start Screen -->
+<div id="start-screen">
+  <img src="assets/blackjack_logo.png" alt="Blackjack Logo" class="logo" />
+  <h1>Blackjack</h1>
+  <button id="start-btn">Start Game</button>
+  <button id="rules-btn">Rules</button>
+  <p class="disclaimer">
+    <strong>Disclaimer:</strong>
+    This Blackjack game is for entertainment purposes only. No real money is involved, and it does not promote gambling. Please play responsibly.
+  </p>
+  <div class="falling-suits" id="falling-suits"></div>
+</div>
+
+<!-- Rules Modal -->
+<div id="rules-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <div class="rules-title">
+      <h2>Blackjack Rules</h2>
+    </div>
+    <h3>How to play?</h3>
+    <ul style="text-align: left;">
+      <li>Select the bet bet-amount you want to bet.</li>
+      <li>Click <strong>Hit</strong> to draw card.</li>
+      <li>Try to get as close to 21 without going over.</li>
+      <li>Once decided, click <strong>Stand</strong> to let dealer play.</li>
+      <li>Dealer will play only after player clicks stand.</li>
+      <li>If the player wins the round, <strong>2X </strong>'Current Bet' is added to Money.</li>
+      <li>If the player loses the round, the 'Current Bet' amount is lost</li>
+    </ul>
+    <h3>Card values</h3>
+    <ul style="text-align: left;">
+      <li>Card values and total are shown during play.</li>
+      <li>Ace can be 1 or 11. Face cards are 10.</li>
+      <li>If you go over 21, you bust and lose the round.</li>
+      <li>If both hands tie, it's a push and your bet is returned.</li>
+    </ul>
+    <span><strong>Note: Any progress in the game will not be saved.</strong></span>
+    <button id="close-rules">Close</button>
+  </div>
+</div>
+
+
+<!-- Game Area -->
+<div id="game-area" style="display: none;">
+  <div id="status">
+    <p>Money: $<span id="money">1000</span></p>
+    <div id="current-bet-container">
+      <p id="current-bet">Current Bet: $0</p>
+      <button id="change-bet-btn" class="inline-btn">Change Bet</button>
+    </div>
+    
+  </div>
+
+  <div class="hands">
+    <div class="hand-container">
+      <h2 id="dealer-label">Dealer</h2>
+      <div class="hand">
+        <div id="dealer-cards" class="cards"></div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="hand-container">
+      <div class="hand">
+        <div id="player-cards" class="cards"></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="player-label">Player</h2>
+
+  <div class="buttons">
+    <button id="hit-btn">Hit</button>
+    <button id="stand-btn">Stand</button>
+  </div>
+
+<!-- Static result section -->
+<div id="result-section" style="display: none;">
+  <h3 style="margin-bottom: 5px; color: #ffcc00;">Result</h3>
+  <p id="result-message" class="static-result"></p>
+
+  <!-- Normal game end buttons -->
+  <div id="action-buttons">
+    <button id="next-round">Proceed</button>
+    <button id="cancel-game">Cancel</button>
+  </div>
+
+  <!-- When player has no money -->
+  <div id="no-money" style="display: none;">
+    <p style="color: white; background-color: #222; padding: 10px; border-radius: 6px; font-weight: bold;">
+      You have no money to bet!
+    </p>
+    <button id="end-game">End Game</button>
+  </div>
+</div>
+
+<!-- Game Over -->
+<div id="game-over" style="display: none;">
+  <h1>Game Over</h1>
+  <button id="restart-btn">Play Again</button>
+</div>
+
+<!-- Bet Modal -->
+<div id="bet-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <h2>Place Your Bet</h2>
+    <div id="bet-controls">
+      <button id="minus-100">-100</button>
+      <button id="minus-10">-10</button>
+      <input type="number" id="bet-amount" value="100" readonly />
+      <button id="plus-10">+10</button>
+      <button id="plus-100">+100</button>
+    </div>
+    <button id="confirm-bet">Confirm Bet</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
