@@ -243,11 +243,13 @@ function shuffle(deck) {
 function disableButtons() {
   hitBtn.disabled = true;
   standBtn.disabled = true;
+  changeBetBtn.disabled = true;
 }
 
 function enableButtons() {
   hitBtn.disabled = false;
   standBtn.disabled = false;
+  changeBetBtn.disabled = false;
 }
 
 const rulesBtn = document.getElementById("rules-btn");
@@ -284,3 +286,20 @@ function createSuit() {
 
 // Trigger falling suits continuously
 setInterval(createSuit, 300);
+
+//change bet button
+const changeBetBtn = document.getElementById("change-bet-btn");
+
+let previousBet = 0; // Global
+
+changeBetBtn.onclick = () => {
+  // Refund previous bet
+  playerMoney += betAmount;
+  updateMoney();
+
+  previousBet = betAmount; // Store in case needed
+
+  // Show the modal pre-filled with current bet
+  betInput.value = betAmount;
+  betModal.style.display = "flex";
+};
