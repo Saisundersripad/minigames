@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles/tictactoe.css" />
+</head>
+<body>
+  <div id="start-screen">
+    <a href="index.html" id="home-button">🏠 Home</a>
+    <img src="assets/tictactoe_logo.png" alt="Blackjack Logo" class="logo" />
+    <h1>Tic Tac Toe</h1>
+    <button id="start-btn">Start Game</button>
+    <div id="falling-symbols"></div>
+  </div>
+
+  <div id="game-container" class="hidden">
+    <h2 id="status">Player X's Turn</h2>
+
+    <!-- New Scoreboard -->
+    <div id="scoreboard">
+        <span>Player X: <strong id="score-x">0</strong></span>
+        <span>Player O: <strong id="score-o">0</strong></span>
+        <span>Draws: <strong id="score-draw">0</strong></span>
+    </div>
+  
+
+    <div class="board" id="board"></div>
+    <div class="btn-group">
+      <button id="restart-btn">Play Again</button>
+      <button id="cancel-btn">Cancel</button>
+    </div>
+  </div>
+
+  <script src="scripts/tictactoe.js"></script>
+</body>
+</html>
