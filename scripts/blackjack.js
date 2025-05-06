@@ -85,7 +85,7 @@ function startRound() {
   shuffle(deck);
   playerMoney -= betAmount;
   updateMoney();
-  currentBetEl.textContent = `Current Bet: $${betAmount}`;
+  currentBetEl.textContent = `Bet Amount: $${betAmount}`;
   playerHand.push(drawCard(), drawCard());
   dealerHand.push(drawCard(), drawCard());
   updateUI();
@@ -96,19 +96,17 @@ function dealerPlays() {
   disableButtons();
   revealDealerCard();
 
-  // Delay to finish card flip and allow visual update
   setTimeout(() => {
     dealerCardRevealed = true;
-    updateUI();
 
     while (calculateHandValue(dealerHand) < 17) {
       dealerHand.push(drawCard());
     }
 
-    updateUI();
-
     const pVal = calculateHandValue(playerHand);
     const dVal = calculateHandValue(dealerHand);
+
+    updateUI(); // ensure updated labels (Dealer (24), etc.)
 
     let message = "";
     if (dVal > 21 || pVal > dVal) {
@@ -126,6 +124,7 @@ function dealerPlays() {
     }, 400);
   }, 700);
 }
+
 
 function endRound(message) {
   disableButtons();

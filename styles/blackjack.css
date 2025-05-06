@@ -257,3 +257,21 @@ button:disabled {
   cursor: not-allowed;
   filter: grayscale(100%);
 }
+
+.scrollable-rules {
+  max-height: 80vh;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.scrollable-rules ul {
+  padding-left: 18px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.scrollable-rules h4 {
+  margin: 10px 0 5px;
+  font-size: 1rem;
+  color: #222;
+}
