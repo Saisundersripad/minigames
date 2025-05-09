@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles/rockpaperscissors.css" />
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <div id="start-screen" class="screen">
+    <a href="index.html" id="home-button">🏠 Home</a>
+    
+    <div id="falling-container"></div>
+    <img src="assets/rockpaperscissor_logo.png" alt="Blackjack Logo" class="logo" />
+    <h1>Rock Paper Scissors</h1>
+    <button id="start-btn">Start Game</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen" style="display: none;">
+    <div id="timer" class="timer">[3]</div>
+    <div class="result" id="result"></div>
+    <div class="hands">
+      <div>
+        <h2>CPU</h2>
+        <div id="cpu-hand" class="hand">❓</div>
+      </div>
+      <div>
+        <h2>You</h2>
+        <div id="player-hand" class="hand">❓</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="rock">🪨</button>
+      <button id="paper">📄</button>
+      <button id="scissors">✂️</button>
+    </div>
+
+    
+
+    <div class="scoreboard">
+      <p>Player Score: <span id="player-score">0</span></p>
+      <p>CPU Score: <span id="cpu-score">0</span></p>
+    </div>
+
+    <div class="control-buttons">
+      <button id="start-again">Start Again</button>
+      <button id="cancel-btn">Cancel</button>
+    </div>
+  </div>
+
+  <script src="scripts/rockpaperscissors.js" defer></script>
+</body>
+</html>
