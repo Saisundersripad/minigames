@@ -1,0 +1,262 @@
+/* Base layout */
+body {
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  #home-button {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #1e1e1e;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.2s ease;
+  }
+
+  .logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Game wrapper */
+  .screen {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: #2e2e2e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #000;
+  }
+  
+  /* Start and control buttons */
+  #start-btn,
+  .control-buttons button {
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  #cancel-btn {
+    background-color: #f44336;
+  }
+  
+  /* Hand display area */
+  .hands {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+  }
+  
+  .hand {
+    font-size: 60px;
+    margin-top: 10px;
+  }
+  
+  /* Player choice buttons */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 10px;
+  }
+  
+  .buttons button {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    font-size: 36px; /* 👈 bigger emoji */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    transition: background 0.3s;
+  }
+  
+  
+  .buttons button:hover {
+    background-color: #666;
+  }
+  
+  /* Result highlight */
+  .result {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .result.win {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .result.lose {
+    background-color: #f44336;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .result.draw {
+    background-color: #ffc107;
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Score and timer */
+  .scoreboard {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+  
+  .timer {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  /* Start Again / Cancel buttons side-by-side */
+  .control-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+  }
+  
+  .control-buttons button {
+    width: 45%;
+    max-width: 200px;
+    font-size: 16px;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 480px) {
+    body {
+      padding: 15px;
+    }
+  
+    .screen {
+      padding: 15px;
+    }
+  
+    .hands {
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+  
+    .hand {
+      font-size: 40px;
+    }
+  
+    .buttons {
+      flex-direction: row;
+      gap: 5px;
+    }
+  
+    .buttons button {
+        flex: 1;
+        aspect-ratio: 1 / 1;
+        font-size: 36px; /* 👈 bigger emoji */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #444;
+        color: white;
+        transition: background 0.3s;
+      }
+      
+  
+    .control-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+  
+    .control-buttons button {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .timer {
+      font-size: 22px;
+    }
+  
+    .result {
+      font-size: 18px;
+    }
+  
+    .scoreboard {
+      font-size: 14px;
+    }
+  }
+/* Falling rock-paper-scissors effect on start screen */
+#falling-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .falling-symbol {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+  
+  /* Ensure start-screen content is above falling effect */
+  #start-screen {
+    position: relative;
+    z-index: 1;
+  }
+    
