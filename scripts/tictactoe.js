@@ -16,6 +16,11 @@ let scoreX = 0;
 let scoreO = 0;
 let scoreDraw = 0;
 
+document.getElementById("home-button").onclick = function (e) {
+  e.preventDefault();
+  window.location.href = "index.html";
+};
+
 startBtn.onclick = () => {
   startScreen.classList.add("hidden");
   gameContainer.classList.remove("hidden");
@@ -27,8 +32,8 @@ restartBtn.onclick = () => {
 };
 
 cancelBtn.onclick = () => {
-    window.location.reload();
-  };
+  window.location.href = "tictactoe.html";
+};
   
 
 function resetGame() {

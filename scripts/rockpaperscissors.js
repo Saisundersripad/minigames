@@ -19,7 +19,14 @@ document.getElementById("paper").onclick = () => handlePlayerChoice("paper");
 document.getElementById("scissors").onclick = () => handlePlayerChoice("scissors");
 
 document.getElementById("start-again").onclick = () => startRound();
-document.getElementById("cancel-btn").onclick = () => location.reload();
+document.getElementById("cancel-btn").onclick = () => {
+  window.location.href = "rockpaperscissors.html";
+};
+
+document.getElementById("home-button").onclick = function (e) {
+  e.preventDefault();
+  window.location.href = "index.html";
+};
 
 startBtn.addEventListener("click", () => {
   startScreen.style.display = "none";
