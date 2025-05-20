@@ -216,7 +216,7 @@ body {
 
 #jump-btn {
   position: absolute;
-  bottom: 20px;
+  top: 50%;
   right: 20px;
   padding: 12px 20px;
   font-size: 18px;
