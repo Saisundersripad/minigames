@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  background: #111;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#home-button {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #ffcc00;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.2s ease;
+}
+
+.logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+#game-container {
+  position: relative;
+  width: 360px;
+  height: 600px;
+  background: linear-gradient(to top, #222, #333);
+  overflow: hidden;
+  border: 2px solid #888;
+  touch-action: manipulation;
+}
+
+#robot {
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+  background: #00c0ff;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px #0ff;
+  z-index: 5;
+}
+
+/* Eyes */
+.eye {
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+}
+
+.left-eye {
+  left: 10px;
+}
+
+.right-eye {
+  right: 10px;
+}
+
+/* Antenna */
+.antenna {
+  width: 4px;
+  height: 12px;
+  background: #ff0;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+
+.jump {
+  animation: jumpAnimation 0.6s ease-out, spinAnimation 0.6s linear;
+}
+
+@keyframes spinAnimation {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes jumpAnimation {
+  0%   { bottom: 0; }
+  50%  { bottom: 200px; } /* was 180px */
+  100% { bottom: 0; }
+}
+
+
+/* Obstacle system */
+#obstacle-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 0;
+  background: red;
+  animation: moveObstacle 2s linear forwards;
+}
+
+.short-obstacle {
+  width: 40px;
+  height: 25px;
+  background-color: dodgerblue;
+  box-shadow: 0 0 5px dodgerblue;
+}
+
+.tall-obstacle {
+  width: 30px;
+  height: 60px;
+  background-color: crimson;
+  box-shadow: 0 0 5px crimson;
+}
+
+.wide-obstacle {
+  width: 40px;
+  height: 40px;
+  background-color: limegreen;
+  box-shadow: 0 0 5px limegreen;
+}
+
+.circle-obstacle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: orange;
+  box-shadow: 0 0 5px orange;
+}
+
+.triangle-obstacle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid grey;
+  background: none;
+}
+
+
+@keyframes moveObstacle {
+  0% { right: -100px; }
+  100% { right: 400px; }
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 18px;
+  z-index: 10;
+}
+
+#game-over {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+  font-size: 24px;
+  z-index: 10;
+}
+
+#game-over button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#start-screen {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+#start-screen h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#start-btn {
+  padding: 10px 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#jump-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 15;
+  display: none;
+}
+
+#jump-btn:active {
+  background-color: #0097a7;
+}
+
+#countdown {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: yellow;
+  font-weight: bold;
+  z-index: 25;
+  display: none;
+}
+
+/*Falling robots*/
+#falling-robots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.robot-fall {
+  position: absolute;
+  font-size: 20px;
+  animation: fall 5s linear forwards;
+  user-select: none;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  0% {
+    top: -30px;
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  100% {
+    top: 100%;
+    transform: translateX(30px);
+    opacity: 0;
+  }
+}

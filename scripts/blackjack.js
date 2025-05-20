@@ -23,6 +23,11 @@ const resultMessage = document.getElementById("result-message");
 const nextRoundBtn = document.getElementById("next-round");
 const cancelGameBtn = document.getElementById("cancel-game");
 
+document.getElementById("home-button").onclick = function (e) {
+  e.preventDefault();
+  window.location.href = "index.html";
+};
+
 startBtn.onclick = () => {
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("game-area").style.display = "block";
@@ -30,8 +35,12 @@ startBtn.onclick = () => {
   showBetModal();
 };
 
-restartBtn.onclick = () => location.reload();
-cancelGameBtn.onclick = () => location.reload();
+restartBtn.onclick = () => {
+  window.location.href = "blackjack.html";
+}
+cancelGameBtn.onclick = () => {
+  window.location.href = "blackjack.html";
+};
 nextRoundBtn.onclick = () => {
   resultSection.style.display = "none";
   enableButtons();
@@ -146,7 +155,7 @@ function endRound(message) {
 
 const endGameBtn = document.getElementById("end-game");
 endGameBtn.onclick = () => {
-  location.reload();
+  window.location.href = "blackjack.html";
 };
 
 

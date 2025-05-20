@@ -49,7 +49,7 @@ body {
   .game-card img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 25px;
   }
   
   footer {
@@ -59,3 +59,20 @@ body {
     font-size: 0.9rem;
   }
   
+@media (max-width: 600px) {
+  main.games-grid {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .game-card {
+    width: 25%; /* Two cards per row with some gap */
+  }
+  .game-card h2 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+
