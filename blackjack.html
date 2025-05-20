@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blackjack Game</title>
   <link rel="stylesheet" href="styles/blackjack.css" />
+  <script>
+    if (performance.navigation.type === 1) {
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
 
 <!-- Start Screen -->
 <div id="start-screen">
-  <a href="index.html" id="home-button">🏠 Home</a>
+  <a href="#" id="home-button">🏠 Home</a>
   
   <img src="assets/blackjack_logo.png" alt="Blackjack Logo" class="logo" />
   <h1>Blackjack</h1>
@@ -109,7 +114,7 @@
   <!-- Normal game end buttons -->
   <div id="action-buttons">
     <button id="next-round">Proceed</button>
-    <button id="cancel-game">Cancel</button>
+    <button id="cancel-game">Exit</button>
   </div>
 
   <!-- When player has no money -->

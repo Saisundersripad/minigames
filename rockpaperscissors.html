@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="styles/rockpaperscissors.css" />
+  <script>
+    if (performance.navigation.type === 1) {
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
 
   <!-- Start Screen -->
   <div id="start-screen" class="screen">
-    <a href="index.html" id="home-button">🏠 Home</a>
+    <a href="#" id="home-button">🏠 Home</a>
     
     <div id="falling-container"></div>
     <img src="assets/rockpaperscissor_logo.png" alt="Blackjack Logo" class="logo" />

@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="styles/tictactoe.css" />
+  <script>
+    if (performance.navigation.type === 1) {
+      window.location.href = "index.html";
+    }
+  </script>
+
 </head>
 <body>
   <div id="start-screen">
-    <a href="index.html" id="home-button">🏠 Home</a>
+    <a href="#" id="home-button">🏠 Home</a>
     <img src="assets/tictactoe_logo.png" alt="Blackjack Logo" class="logo" />
     <h1>Tic Tac Toe</h1>
     <button id="start-btn">Start Game</button>
@@ -29,7 +35,7 @@
     <div class="board" id="board"></div>
     <div class="btn-group">
       <button id="restart-btn">Play Again</button>
-      <button id="cancel-btn">Cancel</button>
+      <button id="cancel-btn">Exit</button>
     </div>
   </div>
 
